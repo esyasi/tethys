@@ -46,7 +46,7 @@ Build:
         --dockerfile $CI_PROJECT_DIR/Dockerfile
         --destination $CI_REGISTRY_IMAGE:${CI_COMMIT_REF_SLUG}-dev
         --tarPath $CI_PROJECT_DIR/${CI_PROJECT_PATH_SLUG}.tar
-        --cache true
+        --cache
         --cache-repo $CI_REGISTRY_IMAGE/cache
   except:
     - tags
@@ -60,7 +60,7 @@ Build:
         --dockerfile $CI_PROJECT_DIR/Dockerfile
         --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
         --destination $CI_REGISTRY_IMAGE:latest
-        --cache true
+        --cache
         --cache-repo $CI_REGISTRY_IMAGE/cache
   only:
     - tags
