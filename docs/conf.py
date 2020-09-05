@@ -217,7 +217,8 @@ todo_include_todos = True
 # If this is True, todo emits a warning for each TODO entries. The default is False.
 todo_emit_warnings = True
 
-html_theme = 'sphinx_materialdesign_theme'
+html_theme = 'mxtheme'
+
 
 html_theme_options = {
     # Specify a list of menu in Header.
@@ -236,11 +237,11 @@ html_theme_options = {
         ('Home', 'index', False, 'home'),
         ('Tutorials', 'tutorials', False, 'assignment'),
         ('SDK', 'tethys_sdk', False, 'build'),
-        ('Template Gizmos', 'tethys_sdk/gizmos', False, 'widgets'),
+        ('Gizmos', 'tethys_sdk/gizmos', False, 'widgets'),
         ('CLI', 'tethys_cli', False, 'keyboard_arrow_right'),
+        ('Services', 'software_suite', False, 'developer_board'),
         ('Tethys Portal', 'tethys_portal', False, 'web'),
-        ('Software Suite', 'software_suite', False, 'developer_board'),
-        ('Migrate Apps', 'whats_new/app_migration', False, 'open_in_browser'),
+        ('Production', 'installation/production', False, 'dns'),
         ("Issues", "https://github.com/tethysplatform/tethys/issues", True, 'bug_report'),
         ("GitHub", "https://github.com/tethysplatform/tethys", True, 'launch')
     ],
@@ -273,3 +274,8 @@ html_theme_options = {
     # Values: True, False (Default: True)
     'show_footer': True
 }
+
+def setup(app):
+    import mxtheme
+    app.add_directive('card', mxtheme.CardDirective)
+
